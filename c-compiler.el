@@ -1,3 +1,10 @@
+(require 'cl-macs)
+
+(defun c-compiler-compile (file)
+  (with-temp-buffer
+    (insert-file-contents file)
+    (c-compiler-lex (buffer-string))))
+
 (defun c-compiler-lex (source-text)
   (let ((regex-constant (rx (1+ digit)))
         (regex-ident    (rx (1+ (in "a-z" "A-Z" "_"))))
