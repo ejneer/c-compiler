@@ -2,7 +2,8 @@
 
 (ert-deftest c-compiler-lex ()
   (let ((source "int       main(void) {
-                     return 2
+                     // a comment
+                     return 2 // an inline comment
                  }")
 	(expected '((keyword . "int")
 		    (identifier . "main")
